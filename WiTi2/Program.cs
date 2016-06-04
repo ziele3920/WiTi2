@@ -16,11 +16,12 @@ namespace WiTi2
             string[] files = { "dane1.txt", "dane2.txt", "dane3.txt", "dane4.txt", "dane5.txt", "dane6.txt", "dane7.txt", "dane8.txt", "dane9.txt" };
             Task[] tasks;
 
-            //Console.WriteLine("Podaj nazwę pliku");
-            string fileName = files[8];// Console.ReadLine();
+            Console.WriteLine("Podaj nazwę pliku");
+            string fileName =  Console.ReadLine();
+            //string fileName = files[8];
             tasks = TS.ReadData(fileName);
 
-            Console.WriteLine($"Result: {witi.WitiAlg(tasks)}");
+            Console.WriteLine($"Punishment: {witi.WitiAlg(tasks)}");
             Console.ReadLine();
         }
     }
