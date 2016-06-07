@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace WiTi2
 {
     class Witi
@@ -42,7 +44,7 @@ namespace WiTi2
                     time += tasks[j].time;
 
             punishment = (time + tasks[i].time - tasks[i].deadline) * tasks[i].punishment;
-            if (tasks[i].deadline < time + tasks[i].time)
+            if (punishment >= 0)
                 return punishment;
             else
                 return 0;
