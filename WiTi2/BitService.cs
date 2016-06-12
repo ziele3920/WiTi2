@@ -3,22 +3,19 @@ namespace WiTi2
 {
     class BitService
     {
+        public bool CheckBit(int value, int index)
+        {
+            return ((value >> index) & 1) == 1 ? true : false;
+        }
+
         public int ClearBit(int value, int index)
         {
-            value &= ~(1 << index);
-            return value;
+            return value &= ~(1 << index);
         }
 
         public int SetBit(int value, int index)
         {
-            value |= (1 << index);
-            return value;
-        }
-
-        public bool CheckBit(int value, int index)
-        {
-            bool bit = ((value >> index) & 1) == 1 ? true : false;
-            return bit;
+            return value |= (1 << index);
         }
 
         public int TwoPowX(int power)

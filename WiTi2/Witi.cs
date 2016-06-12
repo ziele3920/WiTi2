@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace WiTi2
 {
     class Witi
@@ -18,11 +16,10 @@ namespace WiTi2
             {
                 minPunishment = int.MaxValue;
                 for (int i = 0; i <= amount; ++i)
-                {
                     if (BS.CheckBit(step, i))
                     {
-                        permutationPunishments = CountPunishment(tasks, BS.ClearBit(step, i), i, amount);
                         index = BS.ClearBit(step, i);
+                        permutationPunishments = CountPunishment(tasks, index, i, amount);
                         permutationPunishments = permutationPunishments + punishment[index];
                         if (minPunishment > permutationPunishments)
                         {
@@ -30,7 +27,6 @@ namespace WiTi2
                             punishment[step] = permutationPunishments;
                         }
                     }
-                }
             }
             return minPunishment;
         }
@@ -44,10 +40,7 @@ namespace WiTi2
                     time += tasks[j].time;
 
             punishment = (time + tasks[i].time - tasks[i].deadline) * tasks[i].punishment;
-            if (punishment >= 0)
-                return punishment;
-            else
-                return 0;
+            return punishment > 0 ? punishment : 0;
         }
     }
 }
